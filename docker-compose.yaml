@@ -1,0 +1,17 @@
+services:
+  warehouse-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: warehouse-api:v1
+    container_name: warehouse-api-compose
+
+    ports:
+      - "8090:8000"
+
+    environment:
+      APP_ENV: development
+      LOG_LEVEL: info
+
+    restart: unless-stopped
