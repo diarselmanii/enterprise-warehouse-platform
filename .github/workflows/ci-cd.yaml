@@ -36,15 +36,15 @@ jobs:
         run: |
           python -m pytest -v app/tests
 
-build:
-  name: Build Docker Image
-  runs-on: ubuntu-latest
-  needs: test
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: test
 
-  steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Build Docker Image
-      run: |
-        docker build -t warehouse-api:latest .
+      - name: Build Docker Image
+        run: |
+          docker build -t warehouse-api:latest .
